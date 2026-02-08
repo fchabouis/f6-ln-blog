@@ -1,0 +1,3 @@
+(function(){var links=document.getElementsByTagName('a'),numlinks=links.length,signupRegEx=/\/community\/signup\/?/i,link,label,linkType;while(numlinks--){link=links[numlinks];if(link.parentNode.getAttribute('role')==='menuitem'){gaTrack(link,'menu');}else if(signupRegEx.test(link.href)){gaTrack(link,'signup');}else if(link.getAttribute('data-ga-label')){gaTrack(link,'other');}}
+function gaTrack(el,type){if(el.getAttribute('data-ga-label')){label=el.getAttribute('data-ga-label');}else{label=(typeof el.textContent!=='undefined')?el.textContent:el.innerText;}
+el.onclick=(function(label){return function(){_gaq.push(['_trackEvent',type,'click',label]);};}(label));}})();
